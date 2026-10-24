@@ -78,11 +78,12 @@ section{background:var(--bg);color:var(--fg)}
 .nav .btn{padding:11px 20px;font-size:14.5px}
 .burger{display:none;margin-left:auto;width:44px;height:42px;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);border-radius:10px;color:#f2f6fd;cursor:pointer}
 .burger svg{width:18px;height:18px}
-.mob{display:none;background:var(--ink-2);color:#f2f6fd}
-.mob.open{display:block}
+.mob{overflow:hidden;max-height:0;opacity:0;transition:max-height .32s ease,opacity .25s ease;background:var(--ink-2);color:#f2f6fd;border-top:1px solid rgba(255,255,255,.08)}
+.mob.open{max-height:480px;opacity:1}
 .mob .wrap{display:flex;flex-direction:column;padding-block:12px 20px;gap:2px}
-.mob a{padding:13px 2px;border-bottom:1px solid rgba(255,255,255,.1);font-size:16px;color:rgba(242,246,253,.84)}
-.mob .btn{margin-top:16px}
+.mob a{padding:13px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-size:16px;font-weight:600;color:rgba(242,246,253,.84)}
+.mob a:hover{color:#fff}
+.mob .btn{margin-top:16px;width:100%;justify-content:center}
 @media(max-width:960px){.links,.nav .btn{display:none}.burger{display:inline-flex}}
 
 /* ---------------- dark atmosphere ---------------- */
@@ -433,3 +434,404 @@ footer .logo{color:#fff}
 .fbar .mono{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
 .par{will-change:transform}
 @media(prefers-reduced-motion:reduce){.par{transform:none!important}}
+
+/* ======================================================================
+   Mobile & Responsive Polish (Phone & Small Screens)
+   ====================================================================== */
+@media (max-width: 640px) {
+  :root {
+    --gl: max(16px, env(safe-area-inset-left, 0px));
+    --gr: max(16px, env(safe-area-inset-right, 0px));
+  }
+  body {
+    font-size: 15.5px;
+  }
+  .nav .wrap {
+    height: 68px;
+    gap: 14px;
+  }
+  .logo img {
+    width: 28px;
+  }
+  .logo .wm b {
+    font-size: 13.5px;
+  }
+  .logo .wm span {
+    font-size: 7.5px;
+    letter-spacing: .18em;
+  }
+  .pad {
+    padding-block: 48px 44px;
+  }
+  .pad-s {
+    padding-block: 32px 28px;
+  }
+  
+  /* Typography */
+  h1 { font-size: clamp(28px, 8vw, 36px) !important; letter-spacing: -.03em; }
+  h2 { font-size: clamp(23px, 6.5vw, 30px) !important; letter-spacing: -.025em; }
+  .head { margin-bottom: 28px; }
+  .eyebrow { font-size: 11.5px; margin-bottom: 12px; }
+  .lede { font-size: 15px; }
+
+  /* Hero Section */
+  .hero-home {
+    padding-block: 34px 24px;
+    gap: 28px;
+  }
+  .hero-home h1 {
+    font-size: clamp(28px, 8.5vw, 38px) !important;
+    margin-bottom: 16px;
+  }
+  .hero-home .support {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .acts {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .acts .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+  }
+  .proof {
+    gap: 8px 16px;
+    font-size: 12.5px;
+    margin-top: 18px;
+  }
+
+  /* Schematics on mobile */
+  .sys {
+    padding: 14px 12px;
+    border-radius: 14px;
+  }
+  .sys-h {
+    font-size: 10.5px;
+    padding-bottom: 10px;
+  }
+  .live {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+  .layer {
+    padding: 10px 12px;
+    gap: 8px;
+    grid-template-columns: 24px 1fr auto;
+    border-radius: 10px;
+  }
+  .layer .ix {
+    font-size: 10px;
+  }
+  .layer .nm {
+    font-size: 13.5px;
+    line-height: 1.35;
+  }
+  .layer .tg {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+  .link {
+    height: 12px;
+    margin-left: 22px;
+  }
+  .sys-note {
+    min-height: 0;
+    padding: 10px 0 0;
+    gap: 8px;
+  }
+  .sys-note p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .sys-note strong {
+    font-size: 13.5px;
+  }
+  .slider-ui {
+    gap: 10px;
+    padding-bottom: 20px;
+    justify-content: center;
+  }
+  .sbtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+  }
+  .sbtn svg {
+    width: 15px;
+    height: 15px;
+  }
+  .sbar {
+    display: none;
+  }
+
+  /* Capability Carousel Track */
+  .track {
+    grid-auto-columns: calc(86vw - 20px);
+    gap: 14px;
+    padding: 4px 4px 16px;
+  }
+  .wcard {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .wcard h3 {
+    font-size: 17px;
+  }
+  .wcard p {
+    font-size: 13.5px;
+  }
+  .wcard li {
+    font-size: 10.5px;
+    padding: 4px 8px;
+  }
+
+  /* Service Cards */
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .card {
+    border-radius: 14px;
+  }
+  .card .media {
+    height: 110px;
+  }
+  .card .body {
+    padding: 16px 16px 18px;
+    gap: 8px;
+  }
+  .card h3 {
+    font-size: 17.5px;
+  }
+  .card p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .card .out {
+    padding-top: 10px;
+    font-size: 13.5px;
+  }
+
+  /* Feature Grid */
+  .fgrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .feat .ic {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 10px;
+  }
+  .feat .ic svg {
+    width: 28px;
+    height: 28px;
+  }
+  .feat h3 {
+    font-size: 17px;
+  }
+  .feat p {
+    font-size: 14px;
+  }
+
+  /* Sector Selector */
+  .sel {
+    gap: 16px;
+  }
+  .sel-list button {
+    padding: 12px 6px;
+    font-size: 15px;
+  }
+  .sel-panel .top {
+    padding: 16px 16px 0;
+    gap: 12px;
+  }
+  .sel-panel h3 {
+    font-size: 17.5px;
+  }
+  .sel-panel .bd {
+    padding: 12px 16px 18px;
+  }
+  .sel-panel p {
+    font-size: 14px;
+  }
+  .sel-panel .tags li {
+    font-size: 10.5px;
+    padding: 4px 9px;
+  }
+
+  /* Milestones Rail */
+  .rail {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .mile {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .mile .ring {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
+  .mile .ring svg {
+    width: 18px;
+    height: 18px;
+  }
+  .mile h3 {
+    font-size: 17px;
+  }
+  .mile p {
+    font-size: 13.5px;
+  }
+  .mile .chip {
+    margin-top: 12px;
+    font-size: 10.5px;
+    padding: 5px 10px;
+  }
+
+  /* Process Steps */
+  .step {
+    padding: 10px 8px;
+    gap: 10px;
+  }
+  .step .mk {
+    width: 32px;
+    height: 32px;
+    font-size: 11.5px;
+    border-radius: 8px;
+  }
+  .step .tt {
+    font-size: 14.5px;
+  }
+  .proc-panel {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .proc-panel h3 {
+    font-size: 18px;
+  }
+  .proc-panel p {
+    font-size: 14px;
+  }
+  .proc-panel li {
+    font-size: 10.5px;
+    padding: 5px 9px;
+  }
+
+  /* FAQ Accordion */
+  .qa button {
+    font-size: 15px;
+    padding: 14px 2px;
+  }
+  .qa .pm {
+    width: 26px;
+    height: 26px;
+  }
+  .qa .ans p {
+    padding: 0 2px 14px;
+    font-size: 14px;
+  }
+
+  /* Footer */
+  .fg {
+    grid-template-columns: 1fr !important;
+    gap: 22px;
+  }
+  .fg .fb {
+    grid-column: 1/-1;
+  }
+  .fb .tag {
+    font-size: 14.5px;
+    margin: 12px 0 6px;
+  }
+  .fb p {
+    font-size: 13.5px;
+  }
+  .fc h4 {
+    margin-bottom: 8px;
+    font-size: 11.5px;
+  }
+  .fc ul {
+    gap: 7px;
+  }
+  .fc a, .fc li {
+    font-size: 13.5px;
+    word-break: break-word;
+  }
+  .fbar {
+    margin-top: 26px;
+    padding-top: 16px;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  /* Contact Page */
+  .csplit .wrap {
+    padding-block: 36px 44px;
+    gap: 24px;
+  }
+  .cinfo h2 {
+    font-size: 25px;
+  }
+  .cinfo p {
+    font-size: 14.5px;
+  }
+  .cinfo .rows {
+    margin-top: 18px;
+    gap: 12px;
+  }
+  .cinfo .r .vl {
+    font-size: 14.5px;
+  }
+  .fcard {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+  .fcard h3 {
+    font-size: 19px;
+  }
+  .fcard .sub {
+    font-size: 13.5px;
+    margin-bottom: 16px;
+  }
+  form {
+    gap: 12px;
+  }
+  input, select, textarea {
+    padding: 11px 12px;
+    font-size: 14px;
+  }
+  .fld.go .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Page headers */
+  .phead .wrap {
+    padding-block: 40px 32px;
+  }
+  .phead .sub {
+    font-size: 15.5px;
+    margin-bottom: 10px;
+  }
+  .phead p {
+    font-size: 14.5px;
+  }
+
+  /* Numbered List Items */
+  .item {
+    grid-template-columns: 46px 1fr;
+    gap: 12px;
+    padding-block: 20px;
+  }
+  .item h3 {
+    font-size: 18px;
+  }
+}
+
