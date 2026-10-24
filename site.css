@@ -172,6 +172,7 @@ button{font-family:inherit}
 .card h3{font-size:19.5px;letter-spacing:-.025em}
 .card p{font-size:14.8px;color:var(--muted);line-height:1.7}
 .card .out{margin-top:auto;padding-top:14px;display:flex;gap:9px;align-items:flex-start;font-size:14px;color:var(--fg-2);border-top:1px solid var(--line)}
+.out svg{width:16px!important;height:16px!important;max-width:16px;max-height:16px;flex:none;color:var(--live);margin-top:4px}
 .card .out svg{width:15px;height:15px;color:var(--live);flex:none;margin-top:4px}
 @media(min-width:1001px){.cards .card:last-child:nth-child(3n+1){grid-column:span 3}.cards .card:last-child:nth-child(3n+2){grid-column:span 2}}
 @media(max-width:1000px) and (min-width:661px){.cards .card:last-child:nth-child(2n+1){grid-column:span 2}}
