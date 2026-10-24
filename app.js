@@ -107,7 +107,7 @@
   if (note) {
     var p = note.querySelector('p');
     tablist(document.querySelector('.layers'), function (tab) {
-      p.innerHTML = '<strong>' + tab.getAttribute('data-h') + '</strong> ' + tab.getAttribute('data-x');
+      p.innerHTML = '<strong>' + tab.getAttribute('data-h') + '</strong>' + tab.getAttribute('data-x');
       flash(note);
     });
   }
