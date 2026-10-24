@@ -404,4 +404,18 @@
       });
     }, { passive: true });
   })();
+
+  /* ---------- FAQ accordion ---------- */
+  [].slice.call(document.querySelectorAll('.qa')).forEach(function (qa) {
+    var btn = qa.querySelector('button'), ans = qa.querySelector('.ans');
+    if (!btn || !ans) return;
+    btn.addEventListener('click', function () {
+      var open = qa.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      ans.style.maxHeight = open ? (ans.scrollHeight + 'px') : '0px';
+    });
+    window.addEventListener('resize', function () {
+      if (qa.classList.contains('open')) ans.style.maxHeight = ans.scrollHeight + 'px';
+    });
+  });
 })();
